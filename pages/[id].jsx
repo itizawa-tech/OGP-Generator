@@ -1,11 +1,8 @@
 import Head from 'next/head'
-import { useEffect } from 'react'
-import { useUser } from '../context/userContext'
-import axios from 'axios'
+
+import { getOgpById } from '../firebase/ogp'
 
 const Page = (props) => {
-  // Our custom hook to get context values
-  const { loadingUser, user } = useUser()
 
   return (
     <div className="container">
@@ -23,6 +20,7 @@ const Page = (props) => {
 
 
 Page.getInitialProps = async function ({ query }) {
+  await getOgpById(query.id)
   // TODO page data
   return { query };
 };

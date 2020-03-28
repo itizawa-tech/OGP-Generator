@@ -34,9 +34,9 @@ const create = (props) => {
             <h2>Editor</h2>
             <div className="form-group">
               <label htmlFor="siteUrl">Site Url:</label>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="siteUrl-addon">https://</span>
+              <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                  <span className="input-group-text" id="siteUrl-addon">https://</span>
                 </div>
                 <input
                   type="text"
@@ -73,7 +73,7 @@ const create = (props) => {
             <div className="text-center">
               <button type="button" className="btn btn-outline-primary" onClick={saveHandler}>保存する</button>
             </div>
-            {ogpId !== '' && <div className="my-3 alert alert-info"><Link href={`/${ogpId}`}>{ogpId}</Link></div>}
+            {ogpId !== '' && <div className="my-3 alert alert-info"><Link href={`/${ogpId}`}><a>{ogpId}</a></Link></div>}
           </div>
           <div className="col-md-6">
             <h2>Preview</h2>

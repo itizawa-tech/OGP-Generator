@@ -26,7 +26,7 @@ export default () => {
 
         <h1>
           <Link href="/create">
-            Create
+            <a>Create</a>
           </Link>
         </h1>
 

@@ -1,5 +1,6 @@
 import firebase from './clientApp'
 
+// TODO add comment
 const postOgp = async ({ ...ogpData }) => {
   try {
     const { id } = await firebase.firestore().collection("ogp").add({
@@ -14,4 +15,17 @@ const postOgp = async ({ ...ogpData }) => {
   }
 }
 
-export { postOgp } 
+// TODO add comment
+const getOgpById = async (id) => {
+  try {
+    // TODO fetch data
+    // const data = await firebase.firestore().collection("ogp").doc(id)
+    console.log(data)
+    return
+  } catch (err) {
+    console.log(err)
+    throw err
+  }
+}
+
+export { postOgp, getOgpById } 
