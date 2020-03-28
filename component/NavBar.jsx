@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { useUser } from '../context/userContext'
-import firebase from '../firebase/clientApp'
+import firebase from '../lib/firebase/clientApp'
 
 import LoginModal from './LoginModal'
-import { toastSuccess, toastError } from '../utils/toaster'
+import { toastSuccess, toastError } from '../lib/utils/toaster'
 
 const Navbar = (props) => {
   // Our custom hook to get context values
   const { user } = useUser()
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleModal = async() => {
+  const toggleModal = async () => {
     setIsModalOpen(!isModalOpen)
   }
 

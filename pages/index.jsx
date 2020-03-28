@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useUser } from '../context/userContext'
-import firebase from '../firebase/clientApp'
+import firebase from '../lib/firebase/clientApp'
+import Link from 'next/link';
 
 export default () => {
   // Our custom hook to get context values
@@ -22,10 +23,15 @@ export default () => {
       </Head>
 
       <main>
-        <h1 className="title">Next.js w/ Firebase Client-Side</h1>
-        <p className="description">Fill in your credentials to get started</p>
+
+        <h1>
+          <Link href="/create">
+            <a>Create</a>
+          </Link>
+        </h1>
+
       </main>
-      
+
     </div>
   )
 }

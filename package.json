@@ -7,16 +7,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "firebase": "7.11.0",
     "next": "latest",
+    "now": "^17.0.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "reactstrap": "^8.4.1",
     "toastr": "^2.1.4",
-    "now": "^17.0.4"
+    "urljoin": "^0.1.5"
   },
   "devDependencies": {
     "dotenv": "8.2.0"
   },
-  "licence":"MIT"
+  "licence": "MIT"
 }
