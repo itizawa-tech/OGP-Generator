@@ -37,7 +37,7 @@ export default () => {
         </Link>
 
       </main>
-      
+
     </div>
   )
 }

@@ -10,7 +10,7 @@ const Navbar = (props) => {
   const { user } = useUser()
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleModal = async() => {
+  const toggleModal = async () => {
     setIsModalOpen(!isModalOpen)
   }
 

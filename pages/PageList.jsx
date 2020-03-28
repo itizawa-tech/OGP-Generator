@@ -9,10 +9,10 @@ const PageList = (props) => {
     <div className="container">
       <Head>
       </Head>
-      
+
 
       <main>
-        <h1><i className="fas fa-chevron-circle-left mr-2"/>Page List</h1>
+        <h1><i className="fas fa-chevron-circle-left mr-2" />Page List</h1>
         <div className="table-responsive">
           <table className="table table-sm table-hover">
             <thead className="thead-dark">
@@ -35,14 +35,14 @@ const PageList = (props) => {
 PageList.getInitialProps = async function () {
   const userToken = 'idOxGrHDB4uIrxXmR0mQt+W8Dt1w3AGIdoBL4jz0GB4='
   try {
-    const res = await axios.get(`https://tips.weseek.co.jp/_api/search?${userToken}`,{ params: { q: '用語集',limit: 10 } })
+    const res = await axios.get(`https://tips.weseek.co.jp/_api/search?${userToken}`, { params: { q: '用語集', limit: 10 } })
     const pages = res.data.data
     // console.log(page)
-    return {pages}
+    return { pages }
   } catch (err) {
     console.log(err)
     const pages = []
-    return {pages}
+    return { pages }
   }
 };
 
