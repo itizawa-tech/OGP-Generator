@@ -5,6 +5,6 @@ import Navbar from '../component/NavBar'
 export default ({ Component, pageProps }) => (
   <UserProvider>
     <Navbar {...pageProps} />
-    <Component {...pageProps} />
+    <Component className="container-fluid" {...pageProps} />
   </UserProvider>
 )

@@ -23,11 +23,17 @@ export default () => {
       </Head>
 
       <main>
+        <h1>
+          <Link href="/PageList">
+            Page List
+          </Link>
+        </h1>
+
         <Link href="/[id]" as='/apage'>
-          <a>A page</a>
+          <p>A page</p>
         </Link>
         <Link href="/[id]" as='/bpage'>
-          <a>B page</a>
+          <p>B page</p>
         </Link>
 
       </main>

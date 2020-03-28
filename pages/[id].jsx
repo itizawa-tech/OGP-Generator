@@ -22,7 +22,6 @@ const Page = (props) => {
 }
 
 
-
 Page.getInitialProps = async function ({ query }) {
   // TODO page data
   return {query};
