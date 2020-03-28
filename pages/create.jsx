@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useUser } from '../context/userContext'
-import Link from 'next/link';
+import Link from 'next/link'
+import axios from 'axios'
 
-import { postOgp } from '../firebase/ogp'
 import { toastSuccess, toastError } from '../utils/toaster'
 
 const create = (props) => {
@@ -16,8 +16,9 @@ const create = (props) => {
 
   const saveHandler = async () => {
     try {
-      const ogpId = await postOgp({ siteUrl, cardTitle, cardDesc })
-      setOgpId(ogpId)
+      const response = await axios.post('api/ogp', { siteUrl, cardTitle, cardDesc })
+      const { id } = response.data
+      setOgpId(id)
       toastSuccess('セーブに成功しました')
     } catch (err) {
       toastError(err)

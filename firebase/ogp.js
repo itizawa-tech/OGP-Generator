@@ -1,20 +1,3 @@
-import firebase from './clientApp'
-
-// TODO add comment
-const postOgp = async ({ ...ogpData }) => {
-  try {
-    const { id } = await firebase.firestore().collection("ogp").add({
-      siteUrl: ogpData.siteUrl,
-      cardTitle: ogpData.cardTitle,
-      cardDesc: ogpData.cardDesc,
-    })
-    return id
-  } catch (err) {
-    console.log(err)
-    throw err
-  }
-}
-
 // TODO add comment
 const getOgpById = async (id) => {
   try {
