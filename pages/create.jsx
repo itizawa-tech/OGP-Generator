@@ -16,7 +16,7 @@ const create = (props) => {
 
   const saveHandler = async () => {
     try {
-      const response = await axios.post('api/ogp', { siteUrl, cardTitle, cardDesc })
+      const response = await axios.post('api/ogp', { user, siteUrl, cardTitle, cardDesc })
       const { id } = response.data
       setOgpId(id)
       toastSuccess('セーブに成功しました')

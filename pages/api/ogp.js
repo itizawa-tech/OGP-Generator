@@ -1,11 +1,12 @@
 import { db } from '../../lib/db'
 
 export default async (req, res) => {
-  const { siteUrl, cardTitle, cardDesc } = req.body
+  const { user, siteUrl, cardTitle, cardDesc } = req.body
 
   const postOgp = async () => {
     try {
       const { id } = await db.collection("ogp").add({
+        creatorId: user.uid,
         siteUrl,
         cardTitle,
         cardDesc,
