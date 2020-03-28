@@ -1,6 +1,9 @@
 import { useState } from 'react'
-import Head from 'next/head'
 import { useUser } from '../context/userContext'
+import Link from 'next/link';
+
+import { postOgp } from '../firebase/ogp'
+import { toastSuccess, toastError } from '../utils/toaster'
 
 const create = (props) => {
 
@@ -9,8 +12,18 @@ const create = (props) => {
   const [siteUrl, setSiteUrl] = useState('')
   const [cardTitle, setCardTitle] = useState('')
   const [cardDesc, setCardDesc] = useState('')
+  const [ogpId, setOgpId] = useState('')
 
-  console.log(user)
+  const saveHandler = async () => {
+    try {
+      const ogpId = await postOgp({ siteUrl, cardTitle, cardDesc })
+      setOgpId(ogpId)
+      toastSuccess('セーブに成功しました')
+    } catch (err) {
+      toastError(err)
+    }
+  }
+
   return (
     <div className="container">
 
@@ -20,15 +33,20 @@ const create = (props) => {
           <div className="col-md-6">
             <h2>Editor</h2>
             <div className="form-group">
-              <label htmlFor="cardTitle">Site Url:</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Urlを入力してください"
-                id="cardTitle"
-                value={siteUrl}
-                onChange={(e) => setSiteUrl(e.target.value)}
-              />
+              <label htmlFor="siteUrl">Site Url:</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="siteUrl-addon">https://</span>
+                </div>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Urlを入力してください"
+                  id="siteUrl"
+                  value={siteUrl}
+                  onChange={(e) => setSiteUrl(e.target.value)}
+                />
+              </div>
             </div>
             <div className="form-group">
               <label htmlFor="cardTitle">Title:</label>
@@ -53,8 +71,9 @@ const create = (props) => {
               />
             </div>
             <div className="text-center">
-              <button type="button" className="btn btn-outline-primary">保存する</button>
+              <button type="button" className="btn btn-outline-primary" onClick={saveHandler}>保存する</button>
             </div>
+            {ogpId !== '' && <div className="my-3 alert alert-info"><Link href={`/${ogpId}`}>{ogpId}</Link></div>}
           </div>
           <div className="col-md-6">
             <h2>Preview</h2>
@@ -65,7 +84,7 @@ const create = (props) => {
                   <h3>{user.displayName}</h3>
                 </div> :
                 <div className="d-flex">
-                  <h3><i class="fas fa-user" height="32" /> ゲストユーザー</h3>
+                  <h3><i className="fas fa-user" height="32" /> ゲストユーザー</h3>
                 </div>
               }
               <div className="card">
@@ -83,9 +102,5 @@ const create = (props) => {
     </div>
   )
 }
-
-create.getInitialProps = async function () {
-  return {}
-};
 
 export default create

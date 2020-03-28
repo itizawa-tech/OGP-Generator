@@ -23,18 +23,12 @@ export default () => {
       </Head>
 
       <main>
+
         <h1>
-          <Link href="/PageList">
-            Page List
+          <Link href="/create">
+            Create
           </Link>
         </h1>
-
-        <Link href="/[id]" as='/apage'>
-          <p>A page</p>
-        </Link>
-        <Link href="/[id]" as='/bpage'>
-          <p>B page</p>
-        </Link>
 
       </main>
 
