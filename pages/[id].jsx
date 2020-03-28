@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { getOgpById } from '../firebase/ogp'
+import { getOgpById } from '../lib/firebase/ogp'
 
 const Page = (props) => {
 

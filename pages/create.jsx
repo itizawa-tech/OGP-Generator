@@ -3,7 +3,7 @@ import { useUser } from '../context/userContext'
 import Link from 'next/link'
 import axios from 'axios'
 
-import { toastSuccess, toastError } from '../utils/toaster'
+import { toastSuccess, toastError } from '../lib/utils/toaster'
 
 const create = (props) => {
 

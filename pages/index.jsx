@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useUser } from '../context/userContext'
-import firebase from '../firebase/clientApp'
+import firebase from '../lib/firebase/clientApp'
 import Link from 'next/link';
 
 export default () => {
