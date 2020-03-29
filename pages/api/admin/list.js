@@ -2,7 +2,6 @@ import { db } from '../../../lib/db'
 
 export default async (req, res) => {
 
-  console.log(req.query)
   const { userId } = req.query
 
   const fetchList = async () => {
