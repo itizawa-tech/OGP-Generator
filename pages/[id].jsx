@@ -1,7 +1,5 @@
 import Head from 'next/head'
 
-import { getOgpById } from '../lib/firebase/ogp'
-
 const Page = (props) => {
 
   return (
@@ -20,7 +18,6 @@ const Page = (props) => {
 
 
 Page.getInitialProps = async function ({ query }) {
-  await getOgpById(query.id)
   // TODO page data
   return { query };
 };
