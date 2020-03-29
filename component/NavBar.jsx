@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useUser } from '../context/userContext'
 import firebase from '../lib/firebase/clientApp'
+import Link from 'next/link';
 
 import LoginModal from './LoginModal'
 import { toastSuccess, toastError } from '../lib/utils/toaster'
@@ -51,7 +52,9 @@ const Navbar = (props) => {
     <React.Fragment>
 
       <nav className="navbar navbar-dark bg-dark text-white">
-        <a className="navbar-brand mr-auto">OGP Generator</a>
+        <Link href="/">
+          <a className="navbar-brand mr-auto">OGP Generator</a>
+        </Link>
         {user != null && <UserPicture user={user} handleLogout={handleLogout} />}
         {user == null && <button type="button" className="btn btn-info" onClick={toggleModal}>Login</button>}
       </nav>

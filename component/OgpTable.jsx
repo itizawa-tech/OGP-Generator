@@ -48,7 +48,7 @@ class OgpTable extends React.Component {
               {this.state.ogpList.map((ogp) => {
                 return (
                   <tr key={ogp.id}>
-                    <th><a href={urljoin('https://', ogp.siteUrl)}>{urljoin('https://', ogp.siteUrl)}</a></th>
+                    <th><a href={urljoin('https://', ogp.siteUrl)} target="_blank">{urljoin('https://', ogp.siteUrl)}</a></th>
                     <td>{ogp.cardTitle}</td>
                     <td>{ogp.cardDesc}</td>
                     <td></td>
