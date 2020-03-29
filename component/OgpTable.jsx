@@ -33,7 +33,6 @@ class OgpTable extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1 className="ml-3">Page List</h1>
         <div className="table-responsive px-2">
           <table className="table table-sm table-hover">
             <thead className="thead-dark">
@@ -42,19 +41,19 @@ class OgpTable extends React.Component {
                 <th>Title</th>
                 <th>Description</th>
                 <th>Share</th>
-                <th></th>
+                <th width="100px">Manage</th>
               </tr>
             </thead>
             <tbody>
               {this.state.ogpList.map((ogp) => {
                 return (
                   <tr key={ogp.id}>
-                    <th><a href={urljoin('https://', ogp.siteUrl)}>{urljoin('https://', ogp.siteUrl)}</a></th>
+                    <th><a href={urljoin('https://', ogp.siteUrl)} target="_blank">{urljoin('https://', ogp.siteUrl)}</a></th>
                     <td>{ogp.cardTitle}</td>
                     <td>{ogp.cardDesc}</td>
                     <td></td>
                     <td className="text-right">
-                      <Button color="primary">
+                      <Button outline color="info" size="sm">
                         <i className="fas fa-cog mr-2" /><span className="d-none d-md-inline-block">編集する</span>
                       </Button>
                     </td>

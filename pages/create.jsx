@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { useUser } from '../context/userContext'
 import Link from 'next/link'
+import Router from 'next/router'
 import axios from 'axios'
 
-import { toastSuccess, toastError } from '../lib/utils/toaster'
+import { toastError } from '../lib/utils/toaster'
 
 const create = (props) => {
 
   // Our custom hook to get context values
-  const { loadingUser, user } = useUser()
+  const { user } = useUser()
   const [siteUrl, setSiteUrl] = useState('')
   const [cardTitle, setCardTitle] = useState('')
   const [cardDesc, setCardDesc] = useState('')
@@ -16,10 +17,8 @@ const create = (props) => {
 
   const saveHandler = async () => {
     try {
-      const response = await axios.post('api/ogp', { user, siteUrl, cardTitle, cardDesc })
-      const { id } = response.data
-      setOgpId(id)
-      toastSuccess('セーブに成功しました')
+      await axios.post('api/ogp', { user, siteUrl, cardTitle, cardDesc })
+      Router.push('/admin/list')
     } catch (err) {
       toastError(err)
     }
@@ -29,7 +28,7 @@ const create = (props) => {
     <div className="container">
 
       <main>
-        <h1>Create New Link</h1>
+        <h1 className="bg-light"><Link href="/admin/list"><i class="fas fa-arrow-left mr-1" /></Link>Create New Link</h1>
         <div className="row">
           <div className="col-md-6">
             <h2>Editor</h2>
