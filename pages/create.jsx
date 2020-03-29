@@ -28,7 +28,7 @@ const create = (props) => {
     <div className="container">
 
       <main>
-        <h1 className="bg-light">Create New Link</h1>
+        <h1 className="bg-light"><Link href="/admin/list"><i class="fas fa-arrow-left mr-1" /></Link>Create New Link</h1>
         <div className="row">
           <div className="col-md-6">
             <h2>Editor</h2>
